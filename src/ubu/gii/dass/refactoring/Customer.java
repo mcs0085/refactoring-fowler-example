@@ -1,15 +1,15 @@
 package ubu.gii.dass.refactoring;
 
 /**
-* Tema  Refactorizaciones 
-*
-* Ejemplo de aplicaci�n de refactorizaciones. Actualizado para colecciones gen�ricas de java 1.5
-*
-* @author M. Fowler y <A HREF="mailto:clopezno@ubu.es">Carlos L�pez</A>
-* @version 1.1
-* @see java.io.File
-*
-*/
+ * Tema  Refactorizaciones 
+ *
+ * Ejemplo de aplicaci�n de refactorizaciones. Actualizado para colecciones gen�ricas de java 1.5
+ *
+ * @author M. Fowler y <A HREF="mailto:clopezno@ubu.es">Carlos L�pez</A>
+ * @version 1.1
+ * @see java.io.File
+ *
+ */
 import java.util.*;
 
 public class Customer {
@@ -40,7 +40,7 @@ public class Customer {
 			Rental each = rentals.next();
 			// determine amounts for each line
 			thisAmount = each.amountFor();
-			
+
 			// add frequent renter points
 			frequentRenterPoints = each.getFrecuentRenterPoints();
 			// show figures for this rental
@@ -53,5 +53,30 @@ public class Customer {
 		result += "You earned " + String.valueOf(frequentRenterPoints)
 				+ " frequent renter points";
 		return result;
+	}
+
+	public String htmlStatement() {
+		double totalAmount = 0;
+		int frequentRenterPoints = 0;
+		Iterator<Rental> rentals = _rentals.iterator();
+		String result = "<H1>Rental Record for " + getName() + "</H1>";
+		while (rentals.hasNext()) {
+			double thisAmount = 0;
+			Rental each = rentals.next();
+			// determine amounts for each line
+			thisAmount = each.amountFor();
+			frequentRenterPoints += each.getFrecuentRenterPoints();
+			// show figures for this rental
+			result += "<H2>" + each.getMovie().getTitle() + " "
+					+ String.valueOf(thisAmount) + "</H2>";
+			totalAmount += thisAmount;
+		}
+		// add footer lines
+		result += "<P>Amount owed is " + String.valueOf(totalAmount) + "</P>";
+		result += "<P> You earned " + String.valueOf(frequentRenterPoints)
+				+ " frequent renter points </P>";
+
+		return result;
+
 	}
 }
