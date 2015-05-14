@@ -47,7 +47,7 @@ public class Rental {
 		return thisAmount;
 	}
 
-	int getFrecuentRenterPoints() {
+	public int getFrecuentRenterPoints() {
 		int frequentRenterPoints=0;
 		frequentRenterPoints++;
 		// add bonus for a two day new release rental
