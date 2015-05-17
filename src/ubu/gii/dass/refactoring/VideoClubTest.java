@@ -1,4 +1,5 @@
 package ubu.gii.dass.refactoring;
+
 import junit.framework.*;
 
 /**
@@ -9,7 +10,7 @@ import junit.framework.*;
  * 
  * @author M. Fowler y <A HREF="mailto:clopezno@ubu.es">Carlos L�pez</A>
  * @version 1.1
-
+ * 
  * 
  */
 public class VideoClubTest extends TestCase {
@@ -24,7 +25,6 @@ public class VideoClubTest extends TestCase {
 
 		c1 = new Customer("Manuel");
 	}
-
 
 	public static Test suite() {
 
@@ -51,8 +51,8 @@ public class VideoClubTest extends TestCase {
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
 
 	}
-	
-	public void testAlquilerHtml(){
+
+	public void testAlquilerHtml() {
 		Rental r1 = new Rental(m11, 5);
 		Rental r2 = new Rental(m0, 1);
 		Rental r3 = new Rental(m2, 10);
@@ -66,11 +66,10 @@ public class VideoClubTest extends TestCase {
 		String salidaEsperada = new String("<H1>Rental Record for Manuel</H1>"
 				+ "<H2>Sky Captain 15.0</H2>" + "<H2>Accion Mutante 2.0</H2>"
 				+ "<H2>Hermano Oso 12.0</H2>" + "<P>Amount owed is 29.0</P>"
-				+ "<P>You earned 4 frequent renter points</P>");
+				+ "<P> You earned 4 frequent renter points </P>");
 
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
 
-		
 	}
 
 	public static void main(String[] args) {
