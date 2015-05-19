@@ -5,7 +5,6 @@ public abstract class MovieType {
 	public static final int REGULAR = 0;
 	public static final int CHILDRENS = 2;
 	
-	public abstract int getMovieType();
+	public abstract int getTypeCode();
 	
-	public abstract void setMovieType(int type);
 }
