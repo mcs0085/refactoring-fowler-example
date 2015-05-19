@@ -15,12 +15,11 @@ public class Movie {
 
 	private String _title;
 	private int _priceCode;
-	private MovieType type;
+	MovieType type;
 
 	public Movie(String title, int priceCode) {
 		_title = title;
 		_priceCode = priceCode;
-		//type=new MovieType
 	}
 
 	public int getPriceCode() {
@@ -33,26 +32,6 @@ public class Movie {
 
 	public String getTitle() {
 		return _title;
-	}
-
-	double getCharge(Rental rental) {
-		double thisAmount=0;
-		switch (rental.getMovie().getPriceCode()) {
-		case MovieType.REGULAR:
-			thisAmount += 2;
-			if (rental.getDaysRented() > 2)
-				thisAmount += (rental.getDaysRented() - 2) * 1.5;
-			break;
-		case MovieType.NEW_RELEASE:
-			thisAmount += rental.getDaysRented() * 3;
-			break;
-		case MovieType.CHILDRENS:
-			thisAmount += 1.5;
-			if (rental.getDaysRented() > 3)
-				thisAmount += (rental.getDaysRented() - 3) * 1.5;
-			break;
-		}
-		return thisAmount;
 	}
 
 	public int getFrecuentRenterPoints(Rental rental) {
