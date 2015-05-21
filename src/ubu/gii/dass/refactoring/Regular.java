@@ -1,6 +1,11 @@
 package ubu.gii.dass.refactoring;
 
 public class Regular extends MovieType{
+	private int type;
+	
+	public Regular(int priceCode) {
+		type=priceCode;
+	}
 
 	@Override
 	public int getTypeCode() {

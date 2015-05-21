@@ -20,6 +20,12 @@ public class Movie {
 	public Movie(String title, int priceCode) {
 		_title = title;
 		_priceCode = priceCode;
+		switch(priceCode){
+		case 0: type= new Regular(priceCode);
+		case 1: type= new NewRelease(priceCode);
+		case 2: type= new Children(priceCode);
+		}
+		
 	}
 
 	public int getPriceCode() {
